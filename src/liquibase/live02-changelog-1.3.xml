@@ -1,0 +1,32 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create_table_person" author="felipe.zanella">
+        <createTable tableName="PERSON">
+            <column name="ID_PERSON" type="NUMBER(3,0)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="NAME" type="VARCHAR(45)"></column>
+        </createTable>
+
+        <createTable tableName="CAR">
+            <column name="ID_CAR" type="NUMBER(3,0)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="MODEL" type="VARCHAR(45)"></column>
+            <column name="ANO" type="NUMBER(3,0)"></column>
+            <column name="FK_ID_PERSON" type="NUMBER(3,0)"></column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="CAR"
+                baseColumnNames="FK_ID_PERSON"
+                constraintName="FK_ID_PERSON"
+                referencedTableName="PERSON"
+                referencedColumnNames="ID_PERSON"
+        />
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,14 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="drop_table_produto" author="felipe.zanella">
+        <dropTable tableName="PRODUTO"/>
+    </changeSet>
+
+    <changeSet id="alter_table_produto" author="felipe.zanella">
+        <
+    </changeSet>
+
+</databaseChangeLog>

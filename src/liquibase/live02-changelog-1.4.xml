@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create_table_produto" author="felipe.zanella">
+        <createTable tableName="PRODUTO">
+            <column name="ID_PRODUTO" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="DESCRICAO" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_table_estoque" author="felipe.zanella">
+        <createTable tableName="ESTOQUE">
+            <column name="ID_ESTOQUE" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="QUANTIDADE" type="INT"/>
+            <column name="FK_ID_PRODUTO" type="INT">
+                <constraints foreignKeyName="ID_PRODUTO" referencedTableName="PRODUTO"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>
