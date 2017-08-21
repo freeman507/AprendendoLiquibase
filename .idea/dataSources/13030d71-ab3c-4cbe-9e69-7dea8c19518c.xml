@@ -170,12 +170,21 @@
       <Position>1</Position>
       <DataType>DECIMAL(3)|3</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="66" parent="36" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR(45)|12</DataType>
     </column>
-    <key id="67" parent="36" name="PK_PERSON">
+    <column id="67" parent="36" name="EMAIL">
+      <Position>3</Position>
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="68" parent="36" name="DT_NASC">
+      <Position>4</Position>
+      <DataType>DATE(10)|91</DataType>
+    </column>
+    <key id="69" parent="36" name="PK_PERSON">
       <ColNames>ID_PERSON</ColNames>
       <Primary>1</Primary>
     </key>
