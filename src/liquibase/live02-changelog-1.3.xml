@@ -3,30 +3,27 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="create_table_person" author="felipe.zanella">
-        <createTable tableName="PERSON">
-            <column name="ID_PERSON" type="NUMBER(3,0)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="NAME" type="VARCHAR(45)"></column>
-        </createTable>
+    <changeSet id="drop_table_produto" author="felipe.zanella">
+        <dropTable tableName="PRODUTO"/>
+    </changeSet>
 
-        <createTable tableName="CAR">
-            <column name="ID_CAR" type="NUMBER(3,0)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="MODEL" type="VARCHAR(45)"></column>
-            <column name="ANO" type="NUMBER(3,0)"></column>
-            <column name="FK_ID_PERSON" type="NUMBER(3,0)"></column>
-        </createTable>
+    <changeSet id="add_ai_person" author="felipe.zanella">
+        <addAutoIncrement tableName="PERSON" columnName="ID_PERSON"/>
+    </changeSet>
 
-        <addForeignKeyConstraint
-                baseTableName="CAR"
-                baseColumnNames="FK_ID_PERSON"
-                constraintName="FK_ID_PERSON"
-                referencedTableName="PERSON"
-                referencedColumnNames="ID_PERSON"
-        />
+    <changeSet id="alter_table_person" author="felipe.zanella">
+        <addColumn tableName="PERSON">
+            <column name="EMAIL" type="VARCHAR(45)"></column>
+            <column name="DT_NASC" type="DATE"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="insert_table_person" author="felipe.zanella">
+        <insert tableName="PERSON">
+            <column name="NAME" value="Felipe2"></column>
+            <column name="EMAIL" value="felipes.zanella@gmail.com"></column>
+            <column name="DT_NASC" value="1992-08-12"></column>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

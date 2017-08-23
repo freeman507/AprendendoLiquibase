@@ -88,16 +88,6 @@
                     <propertyFile>src/liquibase/liquibase.properties</propertyFile>
                     <changeLogFile>src/liquibase/live02-changelog-master.xml</changeLogFile>
                 </configuration>
-                <!--  I personally prefer run  it manually-->
-                <executions>
-                  <execution>
-                    <phase>process-resources</phase>
-                    <goals>
-                      <goal>update</goal>
-                    </goals>
-                  </execution>
-                </executions>
-
             </plugin>
         </plugins>
     </build>

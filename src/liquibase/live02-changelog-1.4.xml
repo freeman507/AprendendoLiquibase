@@ -3,26 +3,31 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="create_table_produto" author="felipe.zanella">
-        <createTable tableName="PRODUTO">
-            <column name="ID_PRODUTO" type="INT" autoIncrement="true">
-                <constraints primaryKey="true"/>
+    <changeSet id="create_table_department" author="felipe.zanella">
+        <createTable tableName="DEPARTMENT">
+            <column name="ID_DEPARTMENT" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"></constraints>
             </column>
-            <column name="DESCRICAO" type="VARCHAR(45)"/>
+            <column name="DS_DEPARTMENT" type="VARCHAR(45)"/>
         </createTable>
     </changeSet>
 
-    <changeSet id="create_table_estoque" author="felipe.zanella">
-        <createTable tableName="ESTOQUE">
-            <column name="ID_ESTOQUE" type="INT" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
-            </column>
-            <column name="QUANTIDADE" type="INT"/>
-            <column name="FK_ID_PRODUTO" type="INT">
-                <constraints foreignKeyName="ID_PRODUTO" referencedTableName="PRODUTO"/>
-            </column>
-        </createTable>
+    <changeSet id="verify_empty_table_department" author="felipe.zanella">
+        <preConditions onFail="WARN">
+            <sqlCheck expectedResult="0">select count(*) from department</sqlCheck>
+        </preConditions>
+        <comment>Table Department is empty</comment>
     </changeSet>
+
+    <changeSet id="pre_condition_test" author="felipe.zanella">
+        <preConditions onFail="CONTINUE">
+            <sqlCheck expectedResult="0">select count(*) from department</sqlCheck>
+        </preConditions>
+        <insert tableName="DEPARTMENT">
+            <column name="DS_DEPARTMENT" value="inovação"></column>
+        </insert>
+    </changeSet>
+
 
 
 </databaseChangeLog>
