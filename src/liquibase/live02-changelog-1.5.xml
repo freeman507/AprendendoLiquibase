@@ -7,7 +7,7 @@
         <dropTable tableName="PRODUTO"/>
     </changeSet>
 
-    <changeSet id="ADD_AI_PERSON" author="felipe.zanella">
+    <changeSet id="add_ai_person" author="felipe.zanella">
         <addAutoIncrement tableName="PERSON" columnName="ID_PERSON"/>
     </changeSet>
 
@@ -16,6 +16,14 @@
             <column name="EMAIL" type="VARCHAR(45)"></column>
             <column name="DT_NASC" type="DATE"></column>
         </addColumn>
+    </changeSet>
+
+    <changeSet id="insert_table_person" author="felipe.zanella">
+        <insert tableName="PERSON">
+            <column name="NAME" value="Felipe2"></column>
+            <column name="EMAIL" value="felipes.zanella@gmail.com"></column>
+            <column name="DT_NASC" value="1992-08-12"></column>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>
